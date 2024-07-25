@@ -2,6 +2,7 @@
     border: 0;
     margin: 0;
     font-size: 18px;
+    font-family: 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
     /* Colors */
     --dark: #121212;
@@ -30,6 +31,7 @@ button {
 
 h1, h2 {
     font-weight: 500;
+    font-family: 'Fira Code', 'Open Sans', system-ui;
 }
 
 header,
@@ -49,13 +51,23 @@ nav {
 }
 
 .logo p {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 ul.links {
     list-style-type: none;
     display: flex;
     gap: 4rem;
+}
+
+ul.links button {
+    transition: transform 0.2s, color 0.5s;
+}
+
+ul.links button:hover,
+ul.links button:focus {
+    color: var(--light);
+    transform: scale(1.05);
 }
 
 .lang {
@@ -71,6 +83,16 @@ ul.links {
     text-decoration-color: var(--light);
     text-decoration-thickness: 2px;
     text-underline-offset: 3px;
+}
+
+.lang button:hover,
+.lang button:focus {
+    color: var(--light);
+    transform: scale(1.05);
+}
+
+.lang button.selected:hover {
+    text-decoration-color: var(--white);
 }
 
 /* HEADER */
@@ -89,7 +111,7 @@ header {
 }
 
 .heading h1 {
-    font-size: 9rem;
+    font-size: 7rem;
 }
 
 .heading > h1:nth-child(1){
@@ -104,7 +126,7 @@ header {
 .heading p {
     grid-area: desc;
     color: var(--light);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .heading p em {
@@ -117,7 +139,9 @@ header {
     gap: 15px;
 }
 
-.projects-btn {
+.projects-btn:nth-child(1) {
+    width: 80%;
+    font-style: italic;
     background-color: var(--white);
     color: #3D3D3D;
     border-radius: 50px;
@@ -125,20 +149,58 @@ header {
     padding: 15px 15px;
 }
 
-.projects-btn:nth-child(1) {
-    width: 80%;
-    font-style: italic;
+.projects-btn:nth-child(1):hover,
+.projects-btn:nth-child(1):focus {
+    animation: expand-bounce 1s infinite;
 }
+
+@keyframes expand-bounce {
+    0% {
+        transform: scaleX(1);
+    }
+    75% {
+        transform: scaleX(1.05);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
 
 .projects-btn:nth-child(2) svg {
     display: flex;
+}
+
+.projects-btn:nth-child(2) .background {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--white);
+    padding: 15px 15px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.projects-btn:nth-child(2):hover .background,
+.projects-btn:nth-child(2):focus .background {
+    animation: jumping 0.5s infinite alternate;
+}
+
+@keyframes jumping {
+    0% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(50px);
+    }
 }
 
 .socials {
     display: flex;
     justify-content: space-around;
     align-items: center;
-
     margin-top: 5vh;
 }
 
@@ -154,6 +216,16 @@ header {
     border-radius: 30px;
     color: var(--light);
     font-style: italic;
+
+    transition: transform 0.2s, color 0.5s;
+}
+
+.socials > button:hover,
+.socials > button:focus {
+    border: 1px var(--white) solid;
+    color: var(--white);
+    transform: scale(1.05);
+    font-weight: 600;
 }
 
 /* MAIN */
@@ -247,6 +319,31 @@ main {
     border: 3px var(--dark) solid;
     background-color: var(--white);
     transform: scale(1.1) translateX(-20px) rotate(0.85turn);
+    animation: rotate-arrow-out 0.5s;
+}
+
+.github-circle-btn:hover,
+.github-circle-btn:focus {
+    animation: rotate-arrow 0.5s forwards;
+}
+
+@keyframes rotate-arrow {
+    0% {
+        transform: scale(1.1) translateX(-20px) rotate(0.85turn);
+    }
+    100% {
+        transform: scale(1.2) translateX(0px) rotate(1.85turn);
+    }
+}
+
+@keyframes rotate-arrow-out {
+    0% {
+        transform: scale(1.2) translateX(0px) rotate(0.85turn);
+    }
+
+    100% {
+        transform: scale(1.1) translateX(-20px) rotate(1.85turn);
+    }
 }
 
 .styles,
@@ -304,13 +401,24 @@ footer h1 {
 }
 
 .work-item .year {
-    color: var(--light)
+    color: var(--light);
+    margin-left: 30px;
 }
 
 .work-item .period,
 .work-item .company,
 .work-item .position {
     font-size: 1.4rem;
+}
+
+.work-item:hover,
+.work-item:focus {
+    background-color: var(--white);
+    color: var(--dark)
+}
+
+.work-item:hover .year {
+    color: var(--dark)
 }
 
 .total-experience {
@@ -321,6 +429,7 @@ footer h1 {
 .total-experience p {
     font-size: 1.3rem;
 }
+
 .total-experience p:first-child {
     color: var(--light)
 }
