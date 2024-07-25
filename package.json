@@ -1,5 +1,5 @@
 {
-    "name": "template",
+    "name": "portfolio",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -12,15 +12,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/vespucchi/template.git"
+        "url": "git+https://github.com/vespucchi/portfolio.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/vespucchi/template/issues"
+        "url": "https://github.com/vespucchi/portfolio/issues"
     },
-    "homepage": "https://github.com/vespucchi/template#readme",
+    "homepage": "https://github.com/vespucchi/portfolio#readme",
     "jest": {
         "transform": {}
     },

@@ -21,7 +21,7 @@ const common = {
     plugins: [
         new HtmlWebpackPlugin(
             {
-                title: 'template',
+                title: 'portfolio',
                 template: '/src/index.html',
                 filename: 'index.html',
             },
